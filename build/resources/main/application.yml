@@ -1,0 +1,38 @@
+spring:
+  profiles:
+    active: stage
+server:
+  servlet:
+    context-path: /uberdynamicrating/v1
+uber-api-config:
+  clientId: 
+  grantType: client_credentials
+  clientSecret:
+  scope: freight.loads
+  uberTokenApiUrl: https://login.uber.com/oauth/v2/token
+  token: 
+  requestQuoteEndpoint: /freight/loads/quotes
+  aknowledgeQuoteEndpoint: /freight/loads/quote/
+  tenderLoadEndpoint: /freight/loads/tender
+  customerId: TARGETTRAN
+
+---
+
+spring:
+  profiles: local
+uber-api-config:
+  uberApiUrl: https://sandbox-api.uber.com/v1
+
+---
+
+spring:
+  profiles: stage
+uber-api-config:
+  uberApiUrl: https://sandbox-api.uber.com/v1
+
+---
+
+spring:
+  profiles: prod
+uber-api-config:
+  uberApiUrl: https://api.uber.com/v1

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.stefanbirkner:system-rules:1.16.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.stefanbirkner/system-rules/1.16.1/cb9e42b003d0668f6445505c0f81dd9a244a05d5/system-rules-1.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.stefanbirkner/system-rules/1.16.1/ed9fd29e5a3e83887038d5fc4cf0cc931a1a4eff/system-rules-1.16.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

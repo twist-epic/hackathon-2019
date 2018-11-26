@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.izettle:dropwizard-metrics-influxdb:1.2.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.izettle/dropwizard-metrics-influxdb/1.2.2/c60be1a3e289467cafa3c0bc75e3381e6c42bf6/dropwizard-metrics-influxdb-1.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.izettle/dropwizard-metrics-influxdb/1.2.2/b925a40de751f27db506953edc9694a514c4e439/dropwizard-metrics-influxdb-1.2.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

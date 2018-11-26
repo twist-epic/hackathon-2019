@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: local
+server:
+  servlet:
+    context-path: /epichackathonapi/v1
+
+---
+
+spring:
+  profiles: local
+
+---
+
+spring:
+  profiles: stage

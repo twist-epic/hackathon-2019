@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.target.platform:platform-connector-spring-boot:1.0.11">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.target.platform/platform-connector-spring-boot/1.0.11/1d62f3e1acfaea612a2a2470f12f8e9e0deb51f1/platform-connector-spring-boot-1.0.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.target.platform/platform-connector-spring-boot/1.0.11/774d1cce309f40a19b17c1a57ccca2b2c58f0529/platform-connector-spring-boot-1.0.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
