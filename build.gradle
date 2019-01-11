@@ -8,37 +8,23 @@ buildscript {
         mavenCentral()
         jcenter()
         maven {url "https://plugins.gradle.org/m2/"}
-        maven {url "https://binrepo.target.com/artifactory/platform" }
-
     }
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
-        classpath("com.target.platform:platform-connector-gradle:1.0.11") {
-            exclude group: "org.springframework.boot"
-        }
     }
 }
 
 
-
-apply plugin: 'com.target.platform.connector.spring-boot'
 apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'application'
 apply plugin: 'maven'
-apply plugin: 'jacoco'
-
-configurations.all {
-    exclude group: 'org.springframework.boot', module:'spring-boot-starter-logging'
-    exclude group: 'org.springframework.boot', module: "logback-classic"
-    exclude group: 'ch.qos.logback'
-}
 
 jar.enabled = true
 
-group = 'com.tgt.trans'
+group = 'com.tgt.epic'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 mainClassName = 'com.tgt.epic.EpicHackathonApplication'
@@ -47,11 +33,6 @@ version =  '1.0-SNAPSHOT'
 repositories {
     mavenLocal()
     mavenCentral()
-    maven { url "https://binrepo.target.com/artifactory/spring-release" }
-    maven { url "https://binrepo.target.com/artifactory/repo1" }
-    maven { url "https://binrepo.target.com/artifactory/repo1-cache" }
-    maven { url "https://binrepo.target.com/artifactory/app-dev" }
-    maven { url "https://binrepo.target.com/artifactory/ext-release-local" }
     maven { url "http://repo.maven.apache.org/maven2" }
 }
 
@@ -60,7 +41,11 @@ dependencies {
     compile(group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: "${springBootVersion}")
     compile(group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: "${springBootVersion}")
     compile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${springBootVersion}")
+    compile(group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.0.1.RELEASE')
+    compile(group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: "${springBootVersion}")
+
     compile('org.springframework:spring-context')
+    compile group: 'com.h2database', name: 'h2', version: '1.4.196'
     compile group: 'org.apache.httpcomponents', name: 'httpasyncclient', version: '4.1.4'
     compile "io.projectreactor.addons:reactor-extra:3.1.6.RELEASE"
 
@@ -70,6 +55,7 @@ dependencies {
     testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
     compile "cglib:cglib:2.2"
     compile group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.4.14'
+
 }
 
 sourceSets {
@@ -80,31 +66,3 @@ sourceSets {
     }
 }
 
-test.finalizedBy jacocoTestReport
-
-
-jacoco {
-    toolVersion = "0.8.1"
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled false
-        csv.enabled false
-        html.enabled true
-    }
-}
-group 'epic-hackathon-api'
-version '1.0-SNAPSHOT'
-
-apply plugin: 'java'
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
