@@ -1,9 +1,9 @@
 spring:
   profiles:
     active: local
-server:
-  servlet:
-    context-path: /epichackathonapi/v1
+#server:
+#  servlet:
+#    context-path: /epichackathonapi/v1
 
 ---
 
