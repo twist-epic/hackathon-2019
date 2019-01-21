@@ -1,5 +1,6 @@
 package com.tgt.epic.controller;
 
+import com.tgt.epic.domain.Purchase;
 import com.tgt.epic.domain.User;
 import com.tgt.epic.service.EpicHackathonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +48,16 @@ public class EpicHackathonController {
         }
     }
 
+    @GetMapping(path = "/get_one_user/{email}")
+    public ResponseEntity getOneUser(@PathVariable("email") String email) {
+        User user = epicHackathonService.getOneUser(email);
+        return ResponseEntity.status(HttpStatus.OK).body(user);
+    }
+
+    @GetMapping(path = "/get_all_purchases/{email}")
+    public ResponseEntity getPurchases(@PathVariable("email") String email) {
+        List<Purchase> purchases = epicHackathonService.getPurchases(email);
+        return ResponseEntity.status(HttpStatus.OK).body(purchases);
+    }
 
 }

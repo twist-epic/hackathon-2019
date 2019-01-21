@@ -20,6 +20,12 @@ public class UserRecordMapper implements RowMapper<User> {
             user.setPassword(rs.getString("password"));
             user.setFirstName(rs.getString("first_name"));
             user.setLastName(rs.getString("last_name"));
+            user.setHouseNumber(rs.getInt("house_number"));
+            user.setStreetName(rs.getString("street_name"));
+            user.setCity(rs.getString("city"));
+            user.setState(rs.getString("state"));
+            user.setZipCode(rs.getInt("zip_code"));
+
         } catch (SQLException e) {
             System.out.println("Error while mapping user data:" + e);
         }
