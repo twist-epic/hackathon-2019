@@ -16,6 +16,9 @@ public class User {
     @JsonProperty("password")
     private String password;
 
+    @JsonProperty("address")
+    private String address;
+
     public String getFirstName() {
         return firstName;
     }
@@ -46,5 +49,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

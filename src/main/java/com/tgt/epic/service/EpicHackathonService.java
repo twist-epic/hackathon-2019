@@ -28,4 +28,12 @@ public class EpicHackathonService {
         return userDao.getAllUsers();
     }
 
+    public User getOneUser(String email){
+        return userDao.getOneUser(email);
+    }
+
+    public void deleteOneUser(String email) {
+        userDao.deleteOneUser(email);
+    }
+
 }

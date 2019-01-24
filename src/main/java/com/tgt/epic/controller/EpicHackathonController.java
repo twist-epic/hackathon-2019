@@ -21,6 +21,16 @@ public class EpicHackathonController {
         return ResponseEntity.status(HttpStatus.OK).body("HELLO WORLD");
     }
 
+    @GetMapping(path = "/hello/{name}")
+    public ResponseEntity testGetRequest(@PathVariable String name) {
+        return ResponseEntity.status(HttpStatus.OK).body("HELLO " + name);
+    }
+
+    @GetMapping(path = "/bye/{email}")
+    public ResponseEntity testSingleGet(@PathVariable String email) {
+        return ResponseEntity.status(HttpStatus.OK).body("BYEEEE " + email);
+    }
+
     @PutMapping(path = "/testput")
     public ResponseEntity testPutRequest(@RequestBody String input) {
         return ResponseEntity.status(HttpStatus.OK).body("HELLO WORLD");
@@ -37,6 +47,19 @@ public class EpicHackathonController {
         return ResponseEntity.status(HttpStatus.OK).body(users);
     }
 
+    @GetMapping(path = "/get_one_user/{email}")
+         public ResponseEntity getOneUser(@PathVariable String email) {
+        User user = epicHackathonService.getOneUser(email);
+        return ResponseEntity.status(HttpStatus.OK).body(user);
+    }
+
+    @GetMapping(path = "/get_user_address/{email}")
+    public ResponseEntity getUserAddress(@PathVariable String email) {
+        User user = epicHackathonService.getOneUser(email);
+        String a = user.getAddress();
+        return ResponseEntity.status(HttpStatus.OK).body(a);
+    }
+
 
     @PostMapping(path = "/add_user")
     public ResponseEntity addUser(@RequestBody User user) {
@@ -47,5 +70,9 @@ public class EpicHackathonController {
         }
     }
 
-
+    @DeleteMapping(path = "/delete_user/{email}")
+    public ResponseEntity deleteUser(@PathVariable String email) {
+        epicHackathonService.deleteOneUser(email);
+        return ResponseEntity.status(HttpStatus.OK).body("User successfully deleted");
+    }
 }
