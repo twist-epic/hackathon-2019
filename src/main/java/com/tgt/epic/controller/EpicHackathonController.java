@@ -37,6 +37,17 @@ public class EpicHackathonController {
         return ResponseEntity.status(HttpStatus.OK).body(users);
     }
 
+    @GetMapping(path = "/get_one_user")
+    public ResponseEntity getOneUser(@RequestParam("email") String email) {
+        User user = epicHackathonService.getOneUser(email);
+        return ResponseEntity.status(HttpStatus.OK).body(user);
+    }
+
+    @GetMapping(path = "/get_user_address")
+    public ResponseEntity getUserAddress(@RequestParam("email") String email) {
+        User user = epicHackathonService.getOneUser(email);
+        return ResponseEntity.status(HttpStatus.OK).body(user.getAddress());
+    }
 
     @PostMapping(path = "/add_user")
     public ResponseEntity addUser(@RequestBody User user) {
@@ -44,6 +55,15 @@ public class EpicHackathonController {
             return ResponseEntity.status(HttpStatus.OK).body("User successfully added");
         else{
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Adding user failed. Does this user already exist?");
+        }
+    }
+
+    @PostMapping(path = "/update_user")
+    public ResponseEntity updateUser(@RequestBody User user, @RequestParam("email") String oldEmail) {
+        if(epicHackathonService.updateUser(user, oldEmail))
+            return ResponseEntity.status(HttpStatus.OK).body("User successfully updated");
+        else{
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Updating user failed.");
         }
     }
 
