@@ -37,6 +37,11 @@ public class EpicHackathonController {
         return ResponseEntity.status(HttpStatus.OK).body(users);
     }
 
+    @GetMapping(path = "/get_user_address/{email}")
+    public ResponseEntity getUserAddress(@PathVariable("email") String email) {
+        User user = epicHackathonService.getUserAddress(email);
+        return ResponseEntity.status(HttpStatus.OK).body(user);
+    }
 
     @PostMapping(path = "/add_user")
     public ResponseEntity addUser(@RequestBody User user) {

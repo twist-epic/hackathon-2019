@@ -4,11 +4,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tgt.epic.domain.User;
 import org.springframework.jdbc.core.RowMapper;
 
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserRecordMapper implements RowMapper<User> {
+public class UserMapperAddress implements RowMapper<User> {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
@@ -16,10 +15,9 @@ public class UserRecordMapper implements RowMapper<User> {
     public User mapRow(ResultSet rs, int rowNum)  {
         User user = new User();
         try {
-            user.setEmail(rs.getString("email"));
-            user.setPassword(rs.getString("password"));
-            user.setFirstName(rs.getString("first_name"));
-            user.setLastName(rs.getString("last_name"));
+
+
+
             user.setStreetAddress(rs.getString("street_address"));
             user.setCity(rs.getString("city"));
             user.setState(rs.getString("state"));

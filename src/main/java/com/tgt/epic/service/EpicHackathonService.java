@@ -25,7 +25,25 @@ public class EpicHackathonService {
     }
 
     public List<User> getAllUsers(){
-        return userDao.getAllUsers();
+
+        List<User> myUsers= userDao.getAllUsers();
+        for(User currentUser : myUsers){
+            hidecaladress(currentUser);
+        }
+        return myUsers;
     }
 
+    public User getUserAddress(String email){
+        User user=userDao.getUserAddress(email);
+        hidecaladress(user);
+        return user;
+    }
+
+    public void hidecaladress(User currentUser){
+        if(currentUser.getState().equals("CA")) {
+            currentUser.setCity(null);
+            currentUser.setZipCode(null);
+            currentUser.setStreetAddress(null);
+        }
+    }
 }
