@@ -8,7 +8,7 @@ CREATE TABLE users
 );
 
 INSERT INTO users(first_name, last_name, email, password)
-VALUES('Clayton', 'Beyers', 'clayton.beyers@target.com', 'myPassword');
+VALUES('Clayton', 'Beyers', 'first.last@target.com', 'myPassword');
 
 INSERT INTO users(first_name, last_name, email, password)
-VALUES('Tarah', 'Cleveland', 'tarah.cleveland@target.com', 'myPassword');
+VALUES('Tarah', 'Cleveland', 'first.last@target.com', 'myPassword');
